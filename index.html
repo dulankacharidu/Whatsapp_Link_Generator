@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Generate WhatsApp links with ease. WhatsApp Link Generator by Dulanka Charidu.">
+    <title>WhatsApp Link Generator</title>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        form {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+        }
+
+        select[id="country"] {
+            width: 100%;
+            height: 40px;
+            font-size: 16px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-bottom: 20px;
+        }
+
+        input[type="tel"] {
+            width: 90%;
+            height: 40px;
+            font-size: 16px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-bottom: 20px;
+        }
+
+        button[type="button"] {
+            width: 100%;
+            height: 40px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button[type="button"]:hover {
+            background-color: #45a049;
+        }
+
+        p {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #555;
+        }
+    </style>
+</head>
+
+<body>
+    <form>
+        <h2>WhatsApp Link Generator</h2>
+        <label for="country">Select Country:</label></br>
+        <select id="country" name="country">
+            <option data-countryCode="" value="" selected>Select Country</option>
+            <option data-countryCode="LK" value="94">Sri Lanka (+94)</option>
+            <!-- Add other country options here -->
+        </select>
+
+        <br>
+
+        <label for="phone">Phone Number: </label></br>
+        <input type="tel" id="phone" name="phone">
+
+        <br>
+
+        <button type="button" onclick="generateLink()">Generate Link</button>
+        <p>© 2024 Dulanka Charidu. All rights reserved.</p>
+    </form>
+
+    <script>
+        function generateLink() {
+            // Get the phone number input value
+            var phoneNumberInput = document.getElementById("phone");
+            var phoneNumber = phoneNumberInput.value;
+
+            // Remove spaces from the phone number
+            phoneNumber = phoneNumber.replace(/\s/g, "");
+
+            // Check if the phone number starts with a plus sign
+            if (phoneNumber.startsWith("+")) {
+                // If the phone number starts with '+', consider it already formatted
+                // You may add additional validation if needed
+                // Remove leading '0' from the phone number
+                phoneNumber = phoneNumber.replace(/^0/, "");
+
+                // Create the WhatsApp link with the formatted phone number
+                var link = "https://wa.me/" + phoneNumber;
+
+                // Redirect the user to the WhatsApp link
+                window.location.href = link;
+            } else {
+                // If the phone number doesn't start with '+', assume it has a country code
+                // In this case, alert the user to select a country code
+                var countrySelect = document.getElementById("country");
+                if (countrySelect.selectedIndex === 0) {
+                    alert("Please select a country code");
+                    return;
+                }
+
+                // Get the selected country code
+                var selectedCountryCode = countrySelect.options[countrySelect.selectedIndex].getAttribute("value");
+
+                // Remove leading '0' from the phone number
+                phoneNumber = phoneNumber.replace(/^0/, "");
+
+                // Create the WhatsApp link with the formatted phone number
+                var link = "https://wa.me/+" + selectedCountryCode + phoneNumber;
+
+                // Redirect the user to the WhatsApp link
+                window.location.href = link;
+            }
+        }
+    </script>
+</body>
+
+</html>
