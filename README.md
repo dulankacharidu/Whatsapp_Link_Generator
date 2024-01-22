@@ -1,5 +1,7 @@
 # WhatsApp Link Generator
 
+Website : https://whatsapplinkgenerator.free.nf/
+Code open source : https://github.com/dulankacharidu/whatsapplinkgenerator/index.html
 # Overview:
 WhatsApp Link Generator is a simple web tool that allows users to generate WhatsApp links with ease. It eliminates the hassle of manually formatting phone numbers and country codes, providing a seamless experience for sharing WhatsApp contacts.
 
