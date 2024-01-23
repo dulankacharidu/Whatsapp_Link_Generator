@@ -1,6 +1,6 @@
 # WhatsApp Link Generator
 
-Website : http://whatsapplinkgenerator.free.nf/
+Website : https://whatsapplinkgenerator.free.nf/
 Code open source : [https://github.com/dulankacharidu/whatsapplinkgenerator/index.html](https://github.com/dulankacharidu/whatsapplinkgenerator/blob/main/index.html)
 
 # Overview:
